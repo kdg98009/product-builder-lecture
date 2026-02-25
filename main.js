@@ -32,6 +32,7 @@ generateBtn.addEventListener('click', () => {
 function applyTheme(theme) {
   document.body.dataset.theme = theme;
   const isLight = theme === 'light';
+  themeToggle.textContent = isLight ? 'Light Mode' : 'Dark Mode';
   const label = isLight ? 'Switch to dark mode' : 'Switch to light mode';
   themeToggle.setAttribute('aria-label', label);
   themeToggle.setAttribute('title', label);
