@@ -7,12 +7,14 @@
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
+  <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light mode" title="Toggle light mode">
+    <span class="theme-toggle__thumb" aria-hidden="true"></span>
+  </button>
   <main class="app">
     <h1>Lotto Number Generator</h1>
     <div class="container">
         <lotto-numbers></lotto-numbers>
         <button id="generate-btn">Generate Numbers</button>
-        <button id="theme-toggle" aria-pressed="false">Switch to Light Mode</button>
     </div>
   </main>
   <script defer type="text/javascript" src="/main.js"></script>
