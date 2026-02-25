@@ -27,5 +27,3 @@ function renderNumbers(numbers) {
 generateBtn.addEventListener('click', () => {
   renderNumbers(generateLottoNumbers());
 });
-
-renderNumbers(generateLottoNumbers());
