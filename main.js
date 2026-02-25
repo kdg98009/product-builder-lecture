@@ -1,7 +1,8 @@
 const numbersContainer = document.querySelector('lotto-numbers');
 const generateBtn = document.querySelector('#generate-btn');
+const themeToggle = document.querySelector('#theme-toggle');
 
-if (!numbersContainer || !generateBtn) {
+if (!numbersContainer || !generateBtn || !themeToggle) {
   throw new Error('Required elements not found');
 }
 
@@ -26,4 +27,20 @@ function renderNumbers(numbers) {
 
 generateBtn.addEventListener('click', () => {
   renderNumbers(generateLottoNumbers());
+});
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+  const isLight = theme === 'light';
+  themeToggle.textContent = isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+  themeToggle.setAttribute('aria-pressed', String(isLight));
+}
+
+const savedTheme = localStorage.getItem('theme');
+applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+themeToggle.addEventListener('click', () => {
+  const nextTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+  localStorage.setItem('theme', nextTheme);
+  applyTheme(nextTheme);
 });
