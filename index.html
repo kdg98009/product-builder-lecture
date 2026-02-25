@@ -14,6 +14,31 @@
         <lotto-numbers></lotto-numbers>
         <button id="generate-btn">Generate Numbers</button>
     </div>
+    <section class="partner">
+      <h2>제휴 문의</h2>
+      <p class="partner-desc">제휴/협업 관련 문의를 남겨주시면 빠르게 답변드리겠습니다.</p>
+      <form class="partner-form" action="https://formspree.io/f/xojnyoab" method="POST">
+        <label>
+          이름
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          회사명
+          <input type="text" name="company" autocomplete="organization" />
+        </label>
+        <label>
+          이메일
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          문의 내용
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_subject" value="제휴 문의" />
+        <button type="submit" class="partner-submit">문의 보내기</button>
+      </form>
+    </section>
   </main>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>

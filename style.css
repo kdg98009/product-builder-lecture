@@ -44,14 +44,16 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     background-color: var(--bg);
     color: var(--text);
+    padding: 80px 20px 120px;
 }
 
 .app {
     text-align: center;
+    width: min(880px, 100%);
 }
 
 h1 {
@@ -112,6 +114,86 @@ h1 {
     transform: translateY(-2px);
 }
 
+.partner {
+    margin-top: 4rem;
+    padding: 2rem;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    text-align: left;
+}
+
+body[data-theme="light"] .partner {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+}
+
+.partner h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading);
+}
+
+.partner-desc {
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.partner-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.partner-form label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.partner-form input,
+.partner-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text);
+    font-size: 1rem;
+}
+
+body[data-theme="light"] .partner-form input,
+body[data-theme="light"] .partner-form textarea {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.partner-form input:focus,
+.partner-form textarea:focus {
+    outline: 2px solid var(--btn-bg);
+    outline-offset: 2px;
+}
+
+.partner-submit {
+    justify-self: start;
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--btn-text);
+    background-color: var(--btn-bg);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.partner-submit:hover {
+    background-color: var(--btn-bg-hover);
+    transform: translateY(-2px);
+}
+
+.hp-field {
+    display: none;
+}
 
 lotto-numbers {
     display: flex;
