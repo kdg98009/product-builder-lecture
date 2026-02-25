@@ -56,3 +56,16 @@ lotto-numbers {
     display: flex;
     gap: 1rem;
 }
+
+.lotto-ball {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffffff, #ffd54f 40%, #f9a825 70%);
+    color: #1a1a1a;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
