@@ -1,214 +1,207 @@
-/* Basic Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Theme Tokens */
 :root {
-    --bg: #121212;
-    --text: #ffffff;
-    --heading: #f0f0f0;
-    --shadow: rgba(255, 255, 255, 0.2);
-    --btn-bg: #1e88e5;
-    --btn-bg-hover: #1565c0;
-    --btn-text: #ffffff;
-    --toggle-bg: #1f1f1f;
-    --toggle-border: #3a3a3a;
-    --toggle-text: #f5f5f5;
-    --ball-text: #1a1a1a;
-    --ball-grad-1: #ffffff;
-    --ball-grad-2: #ffd54f;
-    --ball-grad-3: #f9a825;
+  --bg: #121212;
+  --text: #ffffff;
+  --heading: #f0f0f0;
+  --shadow: rgba(255, 255, 255, 0.2);
+  --btn-bg: #1e88e5;
+  --btn-bg-hover: #1565c0;
+  --btn-text: #ffffff;
+  --toggle-bg: #1f1f1f;
+  --toggle-border: #3a3a3a;
+  --toggle-text: #f5f5f5;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --field-bg: rgba(0, 0, 0, 0.25);
+  --field-border: rgba(255, 255, 255, 0.15);
+  --table-head: rgba(255, 255, 255, 0.08);
+  --danger-bg: #be123c;
+  --danger-bg-hover: #9f1239;
 }
 
 body[data-theme="light"] {
-    --bg: #f7f7f7;
-    --text: #121212;
-    --heading: #1f1f1f;
-    --shadow: rgba(0, 0, 0, 0.18);
-    --btn-bg: #0f766e;
-    --btn-bg-hover: #115e59;
-    --btn-text: #ffffff;
-    --toggle-bg: #ffffff;
-    --toggle-border: #d1d5db;
-    --toggle-text: #111827;
-    --ball-text: #1b1b1b;
-    --ball-grad-1: #ffffff;
-    --ball-grad-2: #b3e5fc;
-    --ball-grad-3: #4fc3f7;
+  --bg: #f7f7f7;
+  --text: #121212;
+  --heading: #1f1f1f;
+  --shadow: rgba(0, 0, 0, 0.18);
+  --btn-bg: #0f766e;
+  --btn-bg-hover: #115e59;
+  --btn-text: #ffffff;
+  --toggle-bg: #ffffff;
+  --toggle-border: #d1d5db;
+  --toggle-text: #111827;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --field-bg: rgba(255, 255, 255, 0.85);
+  --field-border: rgba(0, 0, 0, 0.12);
+  --table-head: rgba(0, 0, 0, 0.06);
+  --danger-bg: #e11d48;
+  --danger-bg-hover: #be123c;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    background-color: var(--bg);
-    color: var(--text);
-    padding: 80px 20px 120px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 80px 20px 120px;
 }
 
 .app {
-    text-align: center;
-    width: min(880px, 100%);
+  text-align: center;
+  width: min(880px, 100%);
 }
 
 h1 {
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--heading);
-    text-shadow: 0 0 10px var(--shadow);
+  margin-bottom: 0.6rem;
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: var(--heading);
+  text-shadow: 0 0 10px var(--shadow);
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 
-#generate-btn {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--btn-text);
-    background-color: var(--btn-bg);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-#generate-btn:hover {
-    background-color: var(--btn-bg-hover);
-    transform: translateY(-2px);
+.today-label {
+  margin-bottom: 2rem;
+  opacity: 0.85;
 }
 
 .theme-toggle {
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    min-width: 128px;
-    height: 40px;
-    padding: 0 16px;
-    border: 1px solid var(--toggle-border);
-    cursor: pointer;
-    border-radius: 999px;
-    background-color: var(--toggle-bg);
-    color: var(--toggle-text);
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  min-width: 128px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--toggle-border);
+  cursor: pointer;
+  border-radius: 999px;
+  background-color: var(--toggle-bg);
+  color: var(--toggle-text);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .theme-toggle:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-.partner {
-    margin-top: 4rem;
-    padding: 2rem;
-    border-radius: 16px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    text-align: left;
+.sales-card,
+.summary-card,
+.table-card {
+  text-align: left;
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
 }
 
-body[data-theme="light"] .partner {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+.sales-form {
+  display: grid;
+  gap: 1rem;
 }
 
-.partner h2 {
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-    color: var(--heading);
+.sales-form label {
+  display: grid;
+  gap: 0.4rem;
+  font-weight: 600;
 }
 
-.partner-desc {
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
+.sales-form input {
+  width: 100%;
+  border: 1px solid var(--field-border);
+  border-radius: 10px;
+  background: var(--field-bg);
+  padding: 0.85rem 1rem;
+  color: var(--text);
+  font-size: 1rem;
 }
 
-.partner-form {
-    display: grid;
-    gap: 1rem;
+.primary-btn,
+.danger-btn {
+  width: fit-content;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.4rem;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
 }
 
-.partner-form label {
-    display: grid;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.95rem;
+.primary-btn {
+  background-color: var(--btn-bg);
 }
 
-.partner-form input,
-.partner-form textarea {
-    width: 100%;
-    padding: 0.85rem 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.25);
-    color: var(--text);
-    font-size: 1rem;
+.primary-btn:hover {
+  background-color: var(--btn-bg-hover);
+  transform: translateY(-2px);
 }
 
-body[data-theme="light"] .partner-form input,
-body[data-theme="light"] .partner-form textarea {
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    background: rgba(255, 255, 255, 0.85);
+.danger-btn {
+  margin-top: 1rem;
+  background-color: var(--danger-bg);
 }
 
-.partner-form input:focus,
-.partner-form textarea:focus {
-    outline: 2px solid var(--btn-bg);
-    outline-offset: 2px;
+.danger-btn:hover {
+  background-color: var(--danger-bg-hover);
+  transform: translateY(-2px);
 }
 
-.partner-submit {
-    justify-self: start;
-    padding: 0.9rem 1.6rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--btn-text);
-    background-color: var(--btn-bg);
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+.summary-grid {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 1.05rem;
 }
 
-.partner-submit:hover {
-    background-color: var(--btn-bg-hover);
-    transform: translateY(-2px);
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.hp-field {
-    display: none;
+th,
+td {
+  border-bottom: 1px solid var(--field-border);
+  padding: 0.75rem 0.35rem;
 }
 
-lotto-numbers {
-    display: flex;
-    gap: 1rem;
+th {
+  text-align: left;
+  background: var(--table-head);
 }
 
-.lotto-ball {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--ball-grad-1), var(--ball-grad-2) 40%, var(--ball-grad-3) 70%);
-    color: var(--ball-text);
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+.empty-row {
+  text-align: center;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-top: 88px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .theme-toggle {
+    top: 16px;
+    right: 16px;
+  }
 }

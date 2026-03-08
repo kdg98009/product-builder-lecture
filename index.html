@@ -1,43 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotto Number Generator</title>
-  <link href='/style.css' rel='stylesheet'>
+  <title>오늘의 음료 판매 집계</title>
+  <link href="/style.css" rel="stylesheet">
 </head>
 <body>
   <button id="theme-toggle" class="theme-toggle" aria-pressed="false">Dark Mode</button>
   <main class="app">
-    <h1>Lotto Number Generator</h1>
-    <div class="container">
-        <lotto-numbers></lotto-numbers>
-        <button id="generate-btn">Generate Numbers</button>
-    </div>
-    <section class="partner">
-      <h2>제휴 문의</h2>
-      <p class="partner-desc">제휴/협업 관련 문의를 남겨주시면 빠르게 답변드리겠습니다.</p>
-      <form class="partner-form" action="https://formspree.io/f/xojnyoab" method="POST">
+    <h1>오늘 팔린 음료 집계</h1>
+    <p class="today-label">집계일: <strong id="today-date"></strong></p>
+
+    <section class="sales-card">
+      <h2>판매 등록</h2>
+      <form id="sales-form" class="sales-form">
         <label>
-          이름
-          <input type="text" name="name" autocomplete="name" required />
+          음료명
+          <input id="drink-name" type="text" placeholder="예: 아메리카노" required />
         </label>
         <label>
-          회사명
-          <input type="text" name="company" autocomplete="organization" />
+          판매 수량
+          <input id="drink-count" type="number" min="1" value="1" required />
         </label>
-        <label>
-          이메일
-          <input type="email" name="email" autocomplete="email" required />
-        </label>
-        <label>
-          문의 내용
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" />
-        <input type="hidden" name="_subject" value="제휴 문의" />
-        <button type="submit" class="partner-submit">문의 보내기</button>
+        <button type="submit" class="primary-btn">판매 추가</button>
       </form>
+    </section>
+
+    <section class="summary-card">
+      <h2>오늘 누적</h2>
+      <div class="summary-grid">
+        <p>총 판매 수량: <strong id="total-count">0</strong>잔</p>
+        <p>음료 종류 수: <strong id="drink-kinds">0</strong>개</p>
+      </div>
+      <button id="reset-btn" class="danger-btn" type="button">오늘 집계 초기화</button>
+    </section>
+
+    <section class="table-card">
+      <h2>음료별 판매 현황</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>음료명</th>
+            <th>판매 수량</th>
+          </tr>
+        </thead>
+        <tbody id="sales-table-body">
+          <tr>
+            <td colspan="2" class="empty-row">아직 등록된 판매 내역이 없습니다.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </main>
   <script defer type="text/javascript" src="/main.js"></script>
