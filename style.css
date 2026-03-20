@@ -104,7 +104,8 @@ h2 {
 .sales-card,
 .summary-card,
 .table-card,
-.contact-card {
+.contact-card,
+.comments-card {
   text-align: left;
   background: var(--card-bg);
   border-radius: 16px;
@@ -135,6 +136,11 @@ h2 {
 }
 
 .contact-copy {
+  margin-bottom: 1rem;
+  opacity: 0.82;
+}
+
+.comment-copy {
   margin-bottom: 1rem;
   opacity: 0.82;
 }
