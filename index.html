@@ -52,6 +52,46 @@
         </tbody>
       </table>
     </section>
+
+    <section class="contact-card">
+      <h2>제휴 문의</h2>
+      <p class="contact-copy">브랜드 협업, 납품, 공동 프로모션 문의를 남겨주세요.</p>
+      <form
+        id="partnership-form"
+        class="contact-form"
+        action="https://formspree.io/f/xojnyoab"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="새 제휴 문의가 도착했습니다" />
+        <label>
+          담당자명
+          <input name="name" type="text" placeholder="홍길동" required />
+        </label>
+        <label>
+          회사명
+          <input name="company" type="text" placeholder="예: ABC F&B" required />
+        </label>
+        <label>
+          이메일
+          <input name="email" type="email" placeholder="contact@company.com" required />
+        </label>
+        <label>
+          연락처
+          <input name="phone" type="tel" placeholder="010-1234-5678" />
+        </label>
+        <label>
+          문의 내용
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="제휴 목적, 예상 일정, 협업 내용을 적어주세요."
+            required
+          ></textarea>
+        </label>
+        <button id="partnership-submit" type="submit" class="primary-btn">문의 보내기</button>
+        <p id="partnership-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
   <script defer type="text/javascript" src="/main.js"></script>
 </body>

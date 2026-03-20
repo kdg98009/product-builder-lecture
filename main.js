@@ -7,6 +7,9 @@ const drinkKindsEl = document.querySelector('#drink-kinds');
 const salesTableBody = document.querySelector('#sales-table-body');
 const resetBtn = document.querySelector('#reset-btn');
 const themeToggle = document.querySelector('#theme-toggle');
+const partnershipForm = document.querySelector('#partnership-form');
+const partnershipSubmitBtn = document.querySelector('#partnership-submit');
+const partnershipStatus = document.querySelector('#partnership-status');
 
 if (
   !todayDate ||
@@ -17,7 +20,10 @@ if (
   !drinkKindsEl ||
   !salesTableBody ||
   !resetBtn ||
-  !themeToggle
+  !themeToggle ||
+  !partnershipForm ||
+  !partnershipSubmitBtn ||
+  !partnershipStatus
 ) {
   throw new Error('Required elements not found');
 }
@@ -129,6 +135,39 @@ themeToggle.addEventListener('click', () => {
   const nextTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
   localStorage.setItem('theme', nextTheme);
   applyTheme(nextTheme);
+});
+
+partnershipForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  partnershipSubmitBtn.disabled = true;
+  partnershipSubmitBtn.textContent = '전송 중...';
+  partnershipStatus.textContent = '';
+  partnershipStatus.className = 'form-status';
+
+  try {
+    const response = await fetch(partnershipForm.action, {
+      method: 'POST',
+      body: new FormData(partnershipForm),
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Form submission failed');
+    }
+
+    partnershipForm.reset();
+    partnershipStatus.textContent = '문의가 접수되었습니다. 확인 후 연락드리겠습니다.';
+    partnershipStatus.classList.add('is-success');
+  } catch {
+    partnershipStatus.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해주세요.';
+    partnershipStatus.classList.add('is-error');
+  } finally {
+    partnershipSubmitBtn.disabled = false;
+    partnershipSubmitBtn.textContent = '문의 보내기';
+  }
 });
 
 renderSummaryAndTable();
